@@ -80,7 +80,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     private func sendStartEvent() {
         UserDefaults.standard.setValue(nameTextField?.text, forKey: StoredValues.username)
         var username: String = nameTextField!.text!
-        username.remove(at: username.startIndex)
+        username = username.replacingOccurrences(of: prefix, with: "")
         let userInfo: [AnyHashable : Any] = [StoredValues.username: username]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationNames.userReady),
                                         object: self,

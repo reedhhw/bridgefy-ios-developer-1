@@ -201,7 +201,7 @@ extension TransferManager {
             return
         }
         
-        let text = "\(tweet.userId!) \(tweet.text!)"
+        let text = "#\(tweet.userId!) \(tweet.text!)"
         twitterClient.sendTweet(withText: text) { (onlineTweet, error) in
             let success = (error == nil)
             // Code 187 means that the tweet is duplicated, so it will never be posted.
