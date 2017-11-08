@@ -373,7 +373,7 @@ private extension GameManager {
         let maxLen = 7
         if player.userName.characters.count > maxLen {
             let index = player.userName.index(player.userName.startIndex , offsetBy: maxLen)
-            player.userName = player.userName.substring(to: index)
+            player.userName = String(player.userName[..<index])
         }
         let rawStatus = content[status_key] as! Int
         player.playerStatus = PlayerStatus(rawValue: rawStatus)!

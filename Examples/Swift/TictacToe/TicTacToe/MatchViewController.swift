@@ -13,7 +13,7 @@ class MatchViewController: UIViewController, TTTBoardViewDataSource, TTTBoardVie
     weak var game: Game!
     weak var activeGame: ActiveGame?
     var sideSize = 3
-    var timeoutTimer: Timer?
+    var timeoutWorkItem: DispatchWorkItem?
 
     
     @IBOutlet weak var boardView: TTTBoardView!
@@ -192,16 +192,20 @@ class MatchViewController: UIViewController, TTTBoardViewDataSource, TTTBoardVie
         }
         activeGame?.playMove(posX: positionX, posY: positionY)
         updateState()
-        timeoutTimer = Timer.scheduledTimer(timeInterval: Timeout.match,
-                                            target: self,
-                                            selector: #selector(self.endGameAndExit),
-                                            userInfo: nil,
-                                            repeats: false)
+        timeoutWorkItem = DispatchWorkItem.init(flags: .inheritQoS, block: { [weak self] in
+            self?.endGameAndExit()
+        })
+        let deadline = DispatchTime.now() + Timeout.match
+        DispatchQueue.global().asyncAfter(deadline: deadline,
+                                          execute: timeoutWorkItem!)
+
     }
     
     func discardTimeout() {
-        timeoutTimer?.invalidate()
-        timeoutTimer = nil
+        if let timeoutWorkItem = self.timeoutWorkItem, !timeoutWorkItem.isCancelled{
+            timeoutWorkItem.cancel()
+        }
+        self.timeoutWorkItem = nil
     }
     
     deinit {
