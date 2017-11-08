@@ -312,7 +312,6 @@ private extension GameManager {
     }
     
     func sendHandshake(to player: Player) {
-        
         let content: [String: Any] = [ nick_key: username, status_key: currentStatus.rawValue ]
         sendPacket(content,
                    toPlayer: player,
@@ -378,7 +377,9 @@ private extension GameManager {
         }
         let rawStatus = content[status_key] as! Int
         player.playerStatus = PlayerStatus(rawValue: rawStatus)!
-        if delegate != nil {
+        self.processOthersAvailableMsg(playerId: player.identifier)
+        if delegate != nil && !player.connectionNotified{
+            player.connectionNotified = true
             delegate?.gameManager(self, didDetectPlayerConnection: player)
         }
     }

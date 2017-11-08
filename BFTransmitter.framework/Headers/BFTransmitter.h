@@ -224,11 +224,21 @@ NS_ASSUME_NONNULL_BEGIN
  /**
  Creates an instance of BFTransmitter using a certain api key.
  
- @param apiKey Api key to be used y the transmitter.
+ @param apiKey Api key to be used by the transmitter.
 
  @return The instance of BFTransmitter.
  */
 - (id)initWithApiKey:(NSString *)apiKey;
+
+/**
+ Creates an instance of BFTransmitter using a certain api key and indicating the
+ dispatch queue to be used.
+
+ @param apiKey Api key to be used by the transmitter.
+ @param queue The dispatch queue to be used by BFTransmitter.
+ @return The instance of BFTransmitter
+ */
+-(id)initWithApiKey:(NSString *)apiKey andQueue:(dispatch_queue_t) queue;
 
 /**
  *  Send a dictionary to other user. This method is asynchronous, but an initial parameters 

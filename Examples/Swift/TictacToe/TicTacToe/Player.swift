@@ -29,9 +29,11 @@ class Player: NSObject {
     let identifier: String
     var playerStatus: PlayerStatus
     var userName: String = ""
+    var connectionNotified: Bool
     
     init(_ identifier: String) {
         self.identifier = identifier
-        playerStatus = .NoAvailable
+        self.playerStatus = .NoAvailable
+        self.connectionNotified = false
     }
 }
