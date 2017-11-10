@@ -8,21 +8,9 @@ This repository doesn't containt the official version of the framework, in order
 
 ## Pod setup
 
-Podspec source repository:
-```
-https://bitbucket.org/bridgefy/bridgefypods
-```
-
-Framework repository:
-```
-https://bitbucket.org/bridgefy/bridgefy-ios-dist
-```
-
-Add the podspec source and pod's name (BFTransmitter) to your Podfile. If you haven't created a Podfile yet, it should look like this:
+Create your Podfile, it should look like this:
 
 ```
-source 'https://github.com/CocoaPods/Specs.git'
-source 'https://bitbucket.org/bridgefy/bridgefypods.git'
 
 target 'YOUR_TARGET' do
   pod 'BFTransmitter'
