@@ -72,8 +72,8 @@ class ComposeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func performTextCheck() {
-        let remainingCharacters = self.characterLimit - self.composeTextView.text.characters.count - self.username.characters.count - 2
-        if remainingCharacters >= 0 && composeTextView.text.characters.count > 0{
+        let remainingCharacters = self.characterLimit - self.composeTextView.text.count - self.username.count - 2
+        if remainingCharacters >= 0 && composeTextView.text.count > 0{
             self.charactersLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             self.submitButton.isEnabled = true
             self.submitButton.backgroundColor = self.submitColor
@@ -93,7 +93,7 @@ class ComposeViewController: UIViewController, UIGestureRecognizerDelegate {
 extension ComposeViewController: UITextViewDelegate {
     
     public func textViewDidChange(_ textView: UITextView) {
-        self.placeholderLabel.isHidden = self.composeTextView.text.characters.count > 0
+        self.placeholderLabel.isHidden = self.composeTextView.text.count > 0
         performTextCheck()
     }
     

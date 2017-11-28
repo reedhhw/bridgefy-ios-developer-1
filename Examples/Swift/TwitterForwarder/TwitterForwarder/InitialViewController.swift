@@ -49,8 +49,8 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
             sender.text = prefix
             return
         }
-        if text.characters.count == 0 ||
-            text.characters.first != prefix.characters.first {
+        if text.count == 0 ||
+            text.first != prefix.first {
             sender.text = "\(prefix)\(text)"
         }
     }
@@ -60,7 +60,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
             sender.text = ""
             return
         }
-        if text.characters.first == prefix.characters.first {
+        if text.first == prefix.first && text.count <= 1 {
             sender.text = ""
         }
     }
@@ -70,7 +70,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func startApp(sender: UIButton) {
-        if self.nameTextField.text == "" || self.nameTextField.text == "#" {
+        if self.nameTextField.text == "" || self.nameTextField.text == prefix {
             self.askForHashtag()
         } else {
             self.sendStartEvent()
@@ -106,12 +106,12 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var text = string
-        let existingChars = self.nameTextField.text?.characters.count ?? 0
-        if (existingChars + text.characters.count) > maxCharacters {
+        let existingChars = self.nameTextField.text?.count ?? 0
+        if (existingChars + text.count) > maxCharacters {
             return false
         }
-        
-        if text.characters.first == prefix.characters.first {
+        let alreadyHasPound = self.nameTextField.text != nil && self.nameTextField.text!.contains(prefix.first!)
+        if !alreadyHasPound && text.first == prefix.first {
             text.remove(at: text.startIndex)
         }
 
