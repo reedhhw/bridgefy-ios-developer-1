@@ -36,8 +36,8 @@ struct PacketKeys {
 }
 
 struct TwitterCredentials {
-    static let consumerKey = "5D03iXoPfxibzGRpHLSDJYaNf"
-    static let consumerSecret = "HUBYLJfeJiPIev2hXoDgbm1YtfWwPDCyB7UUoCGj54reQDt0m0"
-    static let authToken = "885897134452740101-JUx8Tegyaxsb9ZiWu96DDLzW1BY7GPQ"
-    static let authTokenSecret = "t9SNkaNDarnXGeNXxMazP8QDye5h7wpo6ySh81AQxaoL8"
+    static let consumerKey = "bttpGRZkb4xWjWBZzzbEKyK0h"
+    static let consumerSecret = "XGhdTJopQlGK3RGDThX1G3RaJZ08qGSHCxRfDW4C1v2ymWVVzL"
+    static let authToken = "894830526-eBNUwjROn6WZpH2NhXcQttyLmDa5RvDpNoUusNfU"
+    static let authTokenSecret = "p3VgrdWXUzQWdgmj7Fh11vOyfyVXMHzjUTtTydzCOwHzg"
 }
