@@ -419,7 +419,7 @@ open class ChatListController: UITableViewController, BFTransmitterDelegate, Cha
         return messages
     }
     
-    func savePeers() {
+    @objc func savePeers() {
         let filePath = self.fullPathForFile(peersFile)
         let data = NSKeyedArchiver.archivedData(withRootObject: self.peerNamesDictionary)
         try? data.write(to: URL(fileURLWithPath: filePath), options: [.atomic])
@@ -430,7 +430,7 @@ open class ChatListController: UITableViewController, BFTransmitterDelegate, Cha
         let data: Data? = try? Data(contentsOf: URL(fileURLWithPath: filePath))
         if (data != nil) {
             self.peerNamesDictionary = NSKeyedUnarchiver.unarchiveObject(with: data!) as! NSMutableDictionary
-            self.offlinePeers = peerNamesDictionary.allKeys as! NSMutableArray
+            self.offlinePeers = NSMutableArray(array: peerNamesDictionary.allKeys)
         } else {
             self.peerNamesDictionary = NSMutableDictionary()
             self.offlinePeers = NSMutableArray()

@@ -165,7 +165,7 @@ NSString* const broadcastConversation = @"broadcast";
 {
 
     NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect frame = [keyboardFrameBegin CGRectValue];
 
     self.keyboardConstraint.constant = frame.size.height;

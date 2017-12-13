@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qQF-Y8-Sx9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qQF-Y8-Sx9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,11 +24,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vxh-Ue-3tK" id="7fg-MI-Ek4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#danno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-wi-pSs">
-                                            <rect key="frame" x="18" y="10" width="62" height="20"/>
+                                            <rect key="frame" x="26" y="10" width="62" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="iSS-nM-W5T"/>
                                             </constraints>
@@ -37,7 +37,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(you)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-Lf-T8U">
-                                            <rect key="frame" x="84" y="10" width="42.5" height="20"/>
+                                            <rect key="frame" x="92" y="10" width="44" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="SBS-Ta-mzh"/>
                                             </constraints>
@@ -46,24 +46,24 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osc-qo-cKV">
-                                            <rect key="frame" x="18" y="35" width="339" height="68.5"/>
+                                            <rect key="frame" x="26" y="35" width="323" height="68.5"/>
                                             <string key="text">Esto es un ejemplo de lo que podría decir un tweet de alrededor de alrededor de 140 caracteres, es basicamente para darme una idea de como s</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="internet" translatesAutoresizingMaskIntoConstraints="NO" id="jAz-0X-sea">
-                                            <rect key="frame" x="337" y="10" width="20" height="20"/>
+                                            <rect key="frame" x="329" y="10" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="Trw-ID-KZs"/>
                                                 <constraint firstAttribute="height" constant="20" id="k40-OE-NE7"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyk-31-U0i">
-                                            <rect key="frame" x="227" y="10" width="100" height="20"/>
+                                            <rect key="frame" x="219" y="10" width="100" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="F0Z-hO-XTD"/>
-                                                <constraint firstAttribute="width" constant="100" id="r8L-nd-d8k"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="r8L-nd-d8k"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                             <color key="textColor" white="0.26698022959183676" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,7 +166,7 @@
                                                 <rect key="frame" x="221" y="7" width="60" height="26"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.23529411759999999" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="9tt-Se-f7A"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="9tt-Se-f7A"/>
                                                     <constraint firstAttribute="height" constant="26" id="Iem-qr-jnZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -181,7 +181,7 @@
                                                 <rect key="frame" x="14" y="7" width="75" height="26"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="XFc-kK-hNW"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="XFc-kK-hNW"/>
                                                     <constraint firstAttribute="height" constant="26" id="fjm-ZN-wmB"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -207,13 +207,15 @@
                                             <constraint firstItem="oJH-BV-jsv" firstAttribute="leading" secondItem="aTO-xO-ou9" secondAttribute="leading" constant="14" id="Ptb-cB-ari"/>
                                             <constraint firstAttribute="trailing" secondItem="ezb-sq-oCX" secondAttribute="trailing" constant="14" id="UAN-ZR-ifY"/>
                                             <constraint firstItem="yUl-c5-pjL" firstAttribute="centerX" secondItem="aTO-xO-ou9" secondAttribute="centerX" id="bzW-ir-qlG"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oJH-BV-jsv" secondAttribute="trailing" constant="20" symbolic="YES" id="cfX-jG-M4f"/>
                                             <constraint firstAttribute="height" constant="40" id="uck-2G-GO3"/>
+                                            <constraint firstItem="ezb-sq-oCX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aTO-xO-ou9" secondAttribute="leading" constant="20" symbolic="YES" id="wMn-nT-SzE"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write here ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obx-LC-XjW">
                                         <rect key="frame" x="18" y="62" width="203" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="203" id="Mhe-ke-kv8"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="203" id="Mhe-ke-kv8"/>
                                             <constraint firstAttribute="height" constant="21" id="RoO-rl-IHQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -226,11 +228,13 @@
                                 <constraints>
                                     <constraint firstItem="obx-LC-XjW" firstAttribute="leading" secondItem="zSh-2A-JRc" secondAttribute="leading" constant="4" id="5H3-C6-atK"/>
                                     <constraint firstAttribute="trailing" secondItem="zSh-2A-JRc" secondAttribute="trailing" constant="14" id="7T1-dR-VJb"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="obx-LC-XjW" secondAttribute="trailing" constant="20" symbolic="YES" id="COm-Pu-i2b"/>
                                     <constraint firstItem="8WO-08-6Zh" firstAttribute="leading" secondItem="mrc-1j-lCN" secondAttribute="leading" constant="14" id="FRV-X8-XBh"/>
                                     <constraint firstItem="zSh-2A-JRc" firstAttribute="leading" secondItem="mrc-1j-lCN" secondAttribute="leading" constant="14" id="FeU-CZ-QhW"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="KgO-aB-SJE"/>
                                     <constraint firstAttribute="trailing" secondItem="aTO-xO-ou9" secondAttribute="trailing" id="M9A-YV-Xzk"/>
                                     <constraint firstItem="zSh-2A-JRc" firstAttribute="top" secondItem="aTO-xO-ou9" secondAttribute="bottom" constant="14" id="TvZ-Qj-5LM"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8WO-08-6Zh" secondAttribute="trailing" constant="20" symbolic="YES" id="WiB-F1-LwO"/>
                                     <constraint firstAttribute="height" constant="211" id="kBV-If-xsl"/>
                                     <constraint firstItem="obx-LC-XjW" firstAttribute="top" secondItem="zSh-2A-JRc" secondAttribute="top" constant="8" id="lXF-1G-sWb"/>
                                     <constraint firstItem="aTO-xO-ou9" firstAttribute="top" secondItem="mrc-1j-lCN" secondAttribute="top" id="mAi-0c-RPN"/>
@@ -277,7 +281,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1VR-j5-63t">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.92941176469999998" green="0.23529411759999999" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -321,7 +325,8 @@ Once an Internet enabled node is reached, messages are tweeted from the @Bridgef
                                 <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="lRd-XW-hQM" firstAttribute="top" secondItem="YVf-qa-WpX" secondAttribute="top" id="4tb-cD-lnG"/>
-                                    <constraint firstAttribute="trailing" secondItem="lRd-XW-hQM" secondAttribute="trailing" constant="40" id="BF4-GV-qmz"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lRd-XW-hQM" secondAttribute="trailing" constant="40" id="BF4-GV-qmz"/>
+                                    <constraint firstItem="lRd-XW-hQM" firstAttribute="centerX" secondItem="YVf-qa-WpX" secondAttribute="centerX" id="Hxr-nI-iXU"/>
                                     <constraint firstItem="lRd-XW-hQM" firstAttribute="top" secondItem="YVf-qa-WpX" secondAttribute="top" id="XtM-by-ENi"/>
                                     <constraint firstAttribute="bottom" secondItem="lRd-XW-hQM" secondAttribute="bottom" id="iaZ-5s-QvH"/>
                                     <constraint firstItem="lRd-XW-hQM" firstAttribute="leading" secondItem="YVf-qa-WpX" secondAttribute="leading" constant="40" id="pYB-cc-D7k"/>
@@ -373,8 +378,10 @@ Once an Internet enabled node is reached, messages are tweeted from the @Bridgef
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oTa-J3-yhg" firstAttribute="width" secondItem="V6f-ej-dKs" secondAttribute="width" id="5pd-29-tL4"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lu2-KC-0uD" secondAttribute="trailing" constant="30" id="9XE-T3-S4d"/>
+                            <constraint firstItem="V6f-ej-dKs" firstAttribute="centerX" secondItem="Mrh-rH-HXG" secondAttribute="centerX" id="Aif-D0-fTj"/>
                             <constraint firstItem="sFe-uf-e5J" firstAttribute="top" secondItem="YVf-qa-WpX" secondAttribute="bottom" id="EN1-tc-Mq7"/>
-                            <constraint firstItem="V6f-ej-dKs" firstAttribute="leading" secondItem="Mrh-rH-HXG" secondAttribute="leading" constant="30" id="GOl-U5-zes"/>
+                            <constraint firstItem="lu2-KC-0uD" firstAttribute="leading" secondItem="Mrh-rH-HXG" secondAttribute="leading" constant="30" id="FTr-oy-YrU"/>
                             <constraint firstItem="YVf-qa-WpX" firstAttribute="top" secondItem="lu2-KC-0uD" secondAttribute="bottom" constant="21" id="GPn-5U-MGJ"/>
                             <constraint firstItem="lu2-KC-0uD" firstAttribute="centerX" secondItem="Mrh-rH-HXG" secondAttribute="centerX" id="Nyp-5x-1Va"/>
                             <constraint firstItem="V6f-ej-dKs" firstAttribute="top" secondItem="b9j-H3-XR2" secondAttribute="bottom" constant="30" id="PRN-3b-2sa"/>
@@ -382,7 +389,6 @@ Once an Internet enabled node is reached, messages are tweeted from the @Bridgef
                             <constraint firstAttribute="trailing" secondItem="YVf-qa-WpX" secondAttribute="trailing" id="Ven-gj-2eh"/>
                             <constraint firstItem="YVf-qa-WpX" firstAttribute="leading" secondItem="Mrh-rH-HXG" secondAttribute="leading" id="gtX-eI-Pkr"/>
                             <constraint firstItem="lu2-KC-0uD" firstAttribute="width" secondItem="V6f-ej-dKs" secondAttribute="width" id="jKn-v0-bVV"/>
-                            <constraint firstAttribute="trailing" secondItem="V6f-ej-dKs" secondAttribute="trailing" constant="30" id="lW1-WS-u7I"/>
                             <constraint firstItem="lu2-KC-0uD" firstAttribute="top" secondItem="oTa-J3-yhg" secondAttribute="bottom" constant="21" id="tnh-KU-cj6"/>
                             <constraint firstItem="oTa-J3-yhg" firstAttribute="centerX" secondItem="Mrh-rH-HXG" secondAttribute="centerX" id="ua7-QL-A6d"/>
                         </constraints>

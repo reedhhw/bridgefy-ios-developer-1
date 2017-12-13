@@ -150,18 +150,17 @@ open class ChatViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: Keyboard management
     
-    func keyboardShown(_ notification: Notification) {
+    @objc func keyboardShown(_ notification: Notification) {
         var keyboardInfo = notification.userInfo!
-        let keyboardFrameBegin = keyboardInfo[UIKeyboardFrameBeginUserInfoKey]
+        let keyboardFrameBegin = keyboardInfo[UIKeyboardFrameEndUserInfoKey]
         let frame: CGRect = (keyboardFrameBegin! as AnyObject).cgRectValue
         self.keyboardConstraint.constant = frame.size.height
-        // [error 195:31] no viable alternative at input 'animateWithDuration:'
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.layoutIfNeeded()
         }) 
     }
     
-    func keyboardHidden(_ notification: Notification) {
+    @objc func keyboardHidden(_ notification: Notification) {
         self.keyboardConstraint.constant = 0
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.layoutIfNeeded()

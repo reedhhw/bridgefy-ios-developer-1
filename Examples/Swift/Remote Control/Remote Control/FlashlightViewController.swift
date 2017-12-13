@@ -34,7 +34,7 @@ class FlashlightViewController: UIViewController {
         }
     }
     
-    func enableFlashlightButton() {
+    @objc func enableFlashlightButton() {
         self.flashlightButton.isEnabled = true
     }
 

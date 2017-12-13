@@ -371,7 +371,7 @@ private extension GameManager {
     func processReceivedHandshake(_ content: [String : Any], fromPlayer player: Player) {
         player.userName = content[nick_key] as! String
         let maxLen = 7
-        if player.userName.characters.count > maxLen {
+        if player.userName.count > maxLen {
             let index = player.userName.index(player.userName.startIndex , offsetBy: maxLen)
             player.userName = String(player.userName[..<index])
         }

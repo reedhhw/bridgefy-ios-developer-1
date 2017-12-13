@@ -71,7 +71,7 @@ open class ReceivedNotificationsViewController: UITableViewController {
     class func addNotificationToFile(_ dictionary: [AnyHashable: Any], fromUUID uuid: String) {
         let notification = Notification()
         notification.number = (dictionary["number"] as! NSNumber).intValue
-        notification.senderId = uuid.substring(to: uuid.characters.index(uuid.startIndex, offsetBy: 5))
+        notification.senderId = String(uuid[..<uuid.index(uuid.startIndex, offsetBy: 5)])
         notification.senderName = dictionary["device_name"] as! String
         let doubleValue = (dictionary["date_sent"] as! NSNumber).doubleValue / 1000
         let date = Date(timeIntervalSince1970: doubleValue)

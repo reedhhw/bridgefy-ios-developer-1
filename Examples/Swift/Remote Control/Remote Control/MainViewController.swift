@@ -43,6 +43,10 @@ class MainViewController: UIViewController, BFTransmitterDelegate {
         self.transmitter?.delegate = self
         self.transmitter?.isBackgroundModeEnabled = true
         self.transmitter?.start()
+        
+        // Instruction for the user
+        let clientMessage = "Client Screen\n\n Long press with one finger to go to the admin panel. This will allow you to send commands to nearby devices."
+        self.showText(clientMessage)
     }
 
     override func didReceiveMemoryWarning() {
@@ -231,10 +235,10 @@ class MainViewController: UIViewController, BFTransmitterDelegate {
     
     func showColor(from dictionary: [String: Any]) {
         let c = dictionary[kColorKey] as! Int
-        let receivedColor = UIColor(colorLiteralRed: Float((c >> 16) & 0xFF) / 255.0,
-                                    green: Float((c >> 8) & 0xFF) / 255.0,
-                                    blue: Float(c & 0xFF) / 255.0,
-                                    alpha: Float((c >> 24) & 0xFF) / 255.0)
+        let receivedColor = UIColor(red: CGFloat((c >> 16) & 0xFF) / 255.0,
+                                    green: CGFloat((c >> 8) & 0xFF) / 255.0,
+                                    blue: CGFloat(c & 0xFF) / 255.0,
+                                    alpha: CGFloat((c >> 24) & 0xFF) / 255.0)
         
         self.resetView()
         self.view.backgroundColor = receivedColor
@@ -242,7 +246,7 @@ class MainViewController: UIViewController, BFTransmitterDelegate {
     
     func turnOnFlashlight(flag: Bool) {
         
-        guard let flashlight = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else {
+        guard let flashlight = AVCaptureDevice.default(for: AVMediaType.video) else {
             print("Can't play with torch")
             return
         }
@@ -280,12 +284,16 @@ class MainViewController: UIViewController, BFTransmitterDelegate {
         }
     }
     
-    func turnOffFlashlight() {
+    @objc func turnOffFlashlight() {
         self.turnOnFlashlight(flag: false)
     }
     
     func showText(from dictionary: [String: Any]) {
         let text = dictionary[kTextKey] as! String
+        self.showText(text)
+    }
+    
+    func showText(_ text: String) {
         self.messageLabel.text = text
         self.messageLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         

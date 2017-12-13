@@ -99,7 +99,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             let originalString = text.replacingCharacters(in: range, with: string)
             let cleanText = self.cleanText(string: originalString)
             
-            self.alertController?.actions[1].isEnabled = cleanText.characters.count > 0
+            self.alertController?.actions[1].isEnabled = cleanText.count > 0
         }
         
         return true

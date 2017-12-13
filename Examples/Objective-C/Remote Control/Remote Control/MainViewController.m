@@ -59,6 +59,9 @@ typedef NS_ENUM(NSUInteger, Command) {
     self.transmitter.delegate = self;
     self.transmitter.backgroundModeEnabled = YES;
     [self.transmitter start];
+    // Instruction for the user
+    NSString *clientMessage = @"Client Screen\n\n Long press with one finger to go to the admin panel. This will allow you to send commands to nearby devices.";
+    [self showText:clientMessage];
     
 }
 
@@ -302,6 +305,10 @@ didReceiveDictionary:(NSDictionary<NSString *, id> * _Nullable) dictionary
 
 - (void)showTextFromDictionary:(NSDictionary *)dict {
     NSString *text = [dict objectForKey:kTextKey];
+    [self showText:text];
+}
+
+- (void)showText:(NSString *)text {
     self.messageLabel.text = text;
     self.messageLabel.font = [UIFont boldSystemFontOfSize:20.0];
     

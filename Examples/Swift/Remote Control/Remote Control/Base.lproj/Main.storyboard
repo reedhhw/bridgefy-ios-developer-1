@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u8o-wt-Wrh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u8o-wt-Wrh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +43,7 @@
                             <constraint firstItem="Nb6-rU-wFv" firstAttribute="centerX" secondItem="bcp-Ol-GY1" secondAttribute="centerX" id="jln-3Y-yNC"/>
                             <constraint firstItem="Nb6-rU-wFv" firstAttribute="centerY" secondItem="bcp-Ol-GY1" secondAttribute="centerY" id="ll9-dH-6el"/>
                             <constraint firstAttribute="trailing" secondItem="hkN-WJ-NJX" secondAttribute="trailing" id="qCL-5e-w6v"/>
-                            <constraint firstItem="Nb6-rU-wFv" firstAttribute="trailing" secondItem="bcp-Ol-GY1" secondAttribute="trailingMargin" id="vHv-kK-DDl"/>
+                            <constraint firstItem="Nb6-rU-wFv" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="bcp-Ol-GY1" secondAttribute="trailingMargin" id="vHv-kK-DDl"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="beX-hV-XC8" appends="YES" id="K0z-Im-gPk"/>
@@ -58,7 +59,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w55-JR-3JQ" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="2" id="beX-hV-XC8">
+                <pongPressGestureRecognizer allowableMovement="20" minimumPressDuration="1" id="beX-hV-XC8">
                     <connections>
                         <action selector="longPressDetected:" destination="fZ3-xd-YQ8" id="9Op-RH-0ii"/>
                     </connections>
@@ -178,10 +179,10 @@
                         <constraints>
                             <constraint firstItem="YdV-tX-YxK" firstAttribute="centerX" secondItem="JSo-RC-KeV" secondAttribute="centerX" id="3ef-b3-BwP"/>
                             <constraint firstItem="YdV-tX-YxK" firstAttribute="leading" secondItem="JSo-RC-KeV" secondAttribute="leadingMargin" id="FvY-rr-Y6A"/>
-                            <constraint firstItem="yXA-7s-UTz" firstAttribute="trailing" secondItem="JSo-RC-KeV" secondAttribute="trailingMargin" id="GUc-o7-1aA"/>
+                            <constraint firstItem="yXA-7s-UTz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="JSo-RC-KeV" secondAttribute="trailingMargin" id="GUc-o7-1aA"/>
                             <constraint firstItem="yXA-7s-UTz" firstAttribute="leading" secondItem="JSo-RC-KeV" secondAttribute="leadingMargin" id="Glq-iX-c5C"/>
                             <constraint firstItem="yXA-7s-UTz" firstAttribute="centerY" secondItem="JSo-RC-KeV" secondAttribute="centerY" id="H67-2s-WSs"/>
-                            <constraint firstItem="YdV-tX-YxK" firstAttribute="trailing" secondItem="JSo-RC-KeV" secondAttribute="trailingMargin" id="Mea-uj-kcN"/>
+                            <constraint firstItem="YdV-tX-YxK" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="JSo-RC-KeV" secondAttribute="trailingMargin" id="Mea-uj-kcN"/>
                             <constraint firstItem="YdV-tX-YxK" firstAttribute="top" secondItem="BpD-AN-Bp1" secondAttribute="bottom" constant="100" id="PBA-70-pZ5"/>
                             <constraint firstItem="yXA-7s-UTz" firstAttribute="centerX" secondItem="JSo-RC-KeV" secondAttribute="centerX" id="WwG-fd-uzP"/>
                         </constraints>
@@ -301,11 +302,14 @@
                             <constraint firstItem="5Iv-N8-qda" firstAttribute="top" secondItem="k7V-Fn-3Ty" secondAttribute="bottom" constant="26.5" id="H8o-z7-gna"/>
                             <constraint firstItem="h1I-zC-81i" firstAttribute="top" secondItem="NgB-cY-HzB" secondAttribute="bottom" constant="25" id="HD8-4P-8v0"/>
                             <constraint firstItem="5Iv-N8-qda" firstAttribute="leading" secondItem="k7V-Fn-3Ty" secondAttribute="leading" id="KQi-yx-nwM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Iv-N8-qda" secondAttribute="trailing" constant="1" id="Kdn-ak-zee"/>
                             <constraint firstItem="NgB-cY-HzB" firstAttribute="leading" secondItem="h1I-zC-81i" secondAttribute="leading" id="OgD-Uv-XEg"/>
                             <constraint firstItem="h1I-zC-81i" firstAttribute="centerX" secondItem="fkI-rM-GV6" secondAttribute="centerX" constant="-6" id="VFL-zx-fSS"/>
                             <constraint firstItem="WKV-tv-BTp" firstAttribute="top" secondItem="QJf-p5-MMh" secondAttribute="bottom" constant="15" id="XrW-qU-eMX"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NgB-cY-HzB" secondAttribute="trailing" constant="1" id="ZFI-a0-zxV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k7V-Fn-3Ty" secondAttribute="trailing" constant="1" id="a48-Bv-2Vd"/>
                             <constraint firstItem="WKV-tv-BTp" firstAttribute="leading" secondItem="fkI-rM-GV6" secondAttribute="leadingMargin" id="iVN-yf-GdQ"/>
-                            <constraint firstItem="WKV-tv-BTp" firstAttribute="trailing" secondItem="fkI-rM-GV6" secondAttribute="trailingMargin" id="oHX-dI-Gtc"/>
+                            <constraint firstItem="WKV-tv-BTp" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fkI-rM-GV6" secondAttribute="trailingMargin" id="oHX-dI-Gtc"/>
                             <constraint firstItem="k7V-Fn-3Ty" firstAttribute="top" secondItem="h1I-zC-81i" secondAttribute="bottom" constant="25" id="tSd-sQ-Hds"/>
                             <constraint firstItem="k7V-Fn-3Ty" firstAttribute="leading" secondItem="h1I-zC-81i" secondAttribute="leading" id="tpJ-Sh-Mc1"/>
                             <constraint firstItem="h1I-zC-81i" firstAttribute="centerY" secondItem="fkI-rM-GV6" secondAttribute="centerY" constant="-24.5" id="vuj-G0-43Y"/>
@@ -344,7 +348,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u8o-wt-Wrh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lSk-8C-Hd6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

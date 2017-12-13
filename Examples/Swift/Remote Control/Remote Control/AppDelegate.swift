@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let customRedColor = #colorLiteral(red: 0.9647058824, green: 0.3098039216, blue: 0.3098039216, alpha: 1);
         
         UINavigationBar.appearance().tintColor = customRedColor
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:customRedColor]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:customRedColor]
         
         return true
     }

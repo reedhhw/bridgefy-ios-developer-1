@@ -64,7 +64,7 @@ open class SendNotificationViewController: UIViewController, BFTransmitterDelega
     
     func truncatedUUID() -> String {
         let uuid: String = self.transmitter.currentUser!
-        return uuid.substring(to: uuid.characters.index(uuid.startIndex, offsetBy: 5))
+        return String(uuid[..<uuid.index(uuid.startIndex, offsetBy: 5)])
     }
     
     // MARK: Segue Method

@@ -20,7 +20,7 @@ class TransferManager: NSObject {
     }
     
     override init() {
-        self.transmitter = BFTransmitter(apiKey: YOUR_API_KEY)
+        self.transmitter = BFTransmitter(apiKey: "YOUR_API_KEY")
         self.isInternetForwardEnabled = false
         super.init()
         self.transmitter.delegate = self
