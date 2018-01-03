@@ -657,6 +657,98 @@ The framework is not currently supported on the iOS Simulator. The framework inc
 
 If the app is closed and the BFTransmitter instance is not stopped before, `saveState:` method cleans and saves some control data (cache). The use is not mandatory, but is recommended stop the transmitter or call this method before the app is closed.
 
+### Dictionaries
+
+In order to send a dictionary (see example of the step `4. Send data`, variable `payload`), its components must be JSON encodable, it also can include binary buffers (NSData objects) as values for a key. The main reason of this is that the receiver could be an android device that could not decode objects like UIImage, UIFont, etc.  
+
+Some examples of valid and invalid dictionaries:  
+
+```objective-c
+//Objective-C
+// Valid dictionary
+NSDictionary * payload = @{ @"text": @"Message text",
+                            @"sequence": @(3546),
+                            @"duration": @(656.2973),
+                            @"success":  @(YES) 
+                          };
+// Valid dictionary
+NSData * binaryFile = ... // Loads binary content
+NSDictionary * payload = @{ @"text": @"Message text",
+                            @"file": binaryFile
+                          };
+
+// Invalid dictionary (will provoke an error)
+UIImage * image = ...// loads an image
+NSDictionary * payload = @{ @"text": @"Message text",
+                            @"image": image
+                          };
+
+```
+```swift
+//Swift
+//Objective-C
+// Valid dictionary
+let payload = [ "text": "Message text",
+                "sequence": 3546,
+                "duration": 656.2973,
+                "success":  true 
+              ]
+// Valid dictionary
+let binaryFile: Data = ... // Loads binary content
+let payload = [ "text": "Message text",
+                "file": binaryFile
+              ]
+
+// Invalid dictionary (will provoke an error)
+let image: UIImage = ...// loads an image
+let payload = [ "text": "Message text",
+                "image": image
+              ]
+
+```
+
+### Binary data (files)
+
+We strongly recommend that if you want to send a file (image, music file or other) don't add it as a value in the dictionary, you can do it, but the framework can send this kind of information separately, to give them a better management. An example that send a binary file is shown below:
+
+```objective-c
+//Objective-C
+    NSData * binaryFile = ...// Loads a file
+    NSDictionary *dictionary = @{@"text" : @"Data concerning to the file."};
+    NSString *receiverUser = @"6655a16c-8209-46c4-9c51-21d8df3efb95";
+    [transmitter sendDictionary:dictionary
+                       withData:binaryFile
+                         toUser:receiverUser
+                        options: (BFSendingOptionNoEncrypted | BFSendingOptionMeshTransmission)
+                          error: &error];
+```
+```swift
+//Swift
+    let binaryFile: Data = ... // Loads a file
+    let dictionary = ["text" : "Text message."]
+    let user = "6655a16c-8209-46c4-9c51-21d8df3efb95"
+    let options: BFSendingOption = [.NoEncrypted, .MeshTransmission]
+    try transmitter.sendDictionary(dictionary,
+                                    withData: binaryFile,
+                                    toUser: user,
+                                    options: options)
+```
+
+As you can see, you still can send a dictionary and a binary file together in the same packet, you can also send just the binary part by passing nil instead of the dictionary.  
+Is important to know that binary files sent using this method can't travel through the mesh network (can't be sent using the option `BFSendingOptionMeshTransmission` nor `BFSendingOptionFullTransmission`, just `BFSendingOptionDirectTransmission`), the reason of this is that binary files regularly are too large and could slow down the performance of the mesh network, so files like pictures with very high resolution, mp3 files and others can't be added. Any way, if you really need to send a binary file using the mesh network you can add it as a value in the dictionary, just consider that any large payload will be rejected, the maximum size is 1024 bytes.
+
+### Mesh
+
+Is important to know that binary files sent using the method explained above can't travel through the mesh network (can't be sent using the option `BFSendingOptionMeshTransmission` nor `BFSendingOptionFullTransmission`, just `BFSendingOptionDirectTransmission`), the reason of this is that binary files regularly are too large and could slow down the performance of the mesh network, so files like pictures with very high resolution, mp3 files and others can't be added. Any way, if you really need to send a binary file using the mesh network you can add it as a value in the dictionary, just consider that any large payload will be rejected, the maximum size is 1024 bytes.
+
+### Broadcast messages
+
+Broadcast messages are restricted to be sent using the mesh network, as a consequence, you can't send a binary file using broadcast mode, at least you add it to a dictionary as I mentioned before, but it could be rejected if it's too large.
+
+### Connections with android devices
+
+The iOS framework uses Wifi Peer-to-Peer and Bluetooth Low Energy (BLE) technologies, Wifi peer-to-peer is fast, it can give you up to 2 mbps in the best cases, unfortunately is only available in iOS devices, so any connection with an android device will be established using BLE, this kind of connection has very low throughoput (27 kbps in the best case considering the restrictions of the SO), it implies that if you wan't to send a large file (let's say 1 MB), it will take a really long time. In fact, Bridgefy framework restricts the size of a binary file to 120 KB in BLE (using direct transmission or `BFSendingOptionDirectTransmission`), the size of a dictionary is not restricted, but we don't recommend to send a large amount of data, though.
+
 [ADD_KEY]: https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 [BRIDGEFY_WEB]: https://bridgefy.me/download-bridgefy.php
 [BRIDGEFY_DIST]: https://bitbucket.org/bridgefy/bridgefy-ios-dist/
