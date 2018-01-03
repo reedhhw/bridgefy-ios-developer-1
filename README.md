@@ -2,7 +2,7 @@
 Bridgefy Transmitter is a library that allows the client to transmit data to nearby peers without the necessity of an Internet connection or an access point. It also implements a mesh-network transmission algorithm that enables devices to send data to peers that are so far away that they aren't visible to the client device.
 
  **IMPORTANT NOTE!**  
-This repository doesn't containt the official version of the framework, in order to run the example projects, please go the [distribution repository][BRIDGEFY_DIST] to get the last official version of `BFTransmitter.framework` and replace the local copy. You will also need to have an API key for every project you run, go to the [Bridgefy website][BRIDGEFY_WEB] to know how to obtain it.
+This repository doesn't contain the official version of the framework. In order to run the example projects, please go to the [distribution repository][BRIDGEFY_DIST] to get the latest official version of `BFTransmitter.framework` and replace the local copy. You will also need to have an API key for every project you run, so please go to [Bridgefy website][BRIDGEFY_WEB] to know how to obtain it.
 
 ---
 
@@ -39,15 +39,15 @@ Download the official version of `BFTransmitter.framework` [here][BRIDGEFY_DIST]
 Select the option "Copy items if needed" and you will be able to use the framework.
 
 ### Swift projects
-If you need to use the framework in a Swift project you will need to create a bridging header, this process is described [here][BRIDGING_HEADER]. An easy way to do it is just create an Objective-C class, then XCode will ask you to create the bridging header automatically, once created, delete the new class and edit the file `YOUR_PROJECT-Bridging-Header.h` to replace the content with `#import <BFTransmitter/BFTransmitter.h>`.
+If you need to use the framework in a Swift project, you will need to create a bridging header. This process is described [here][BRIDGING_HEADER]. An easy way to do it is by just creating an Objective-C class, then XCode will ask you to create the bridging header automatically. Once created, delete the new class and edit the file `YOUR_PROJECT-Bridging-Header.h` to replace the content with `#import <BFTransmitter/BFTransmitter.h>`.
 
 ---
 
-## Submit to the Appstore
+## Submit to the App Store
 
-In order to submit to the appstore, you will need to add the key `NSBluetoothPeripheralUsageDescription` to `Info.plist`, as value introduce a description of the use of Bluetooth in the app, this message will be shown to the user.
+In order to submit to the App Store, you will need to add the key `NSBluetoothPeripheralUsageDescription` to `Info.plist`, as a value to introduce a description of the use of Bluetooth in the app. This message will be shown to the user.
 
-Additionally, if you made a **manual setup** (you **didn't** use CocoaPods), you will need to strip the architectures `i386` and `x86_64`, this because the framework is sent including this architectures, so you can run your apps in the simulator, but the Appstore doesn't accept them for distribution. You can do this adding the following Run Script to the phases of your target:
+Additionally, if you made a **manual setup** (you **didn't** use CocoaPods), you will need to strip the architectures `i386` and `x86_64`, this is because the framework is sent including these architectures, so you can run your apps in the simulator, although the App Store doesn't accept them for distribution. You can do this by adding the following Run Script to the phases of your target:
 
 ```sh
 if [ "${CONFIGURATION}" = "Release" ]; then
@@ -87,7 +87,7 @@ The following code shows how to create an instance of BFTransmitter (using your 
     transmitter.delegate = self
 ```
 
-The string "YOUR API KEY" represents a valid API key. This is necessary so the transmitter can be started. Internet connection is needed at least for the first time the transmitter is instantiated in order to validate the license.
+The string "YOUR API KEY" represents a valid API key. This is necessary so the transmitter can be started. An Internet connection is needed at least for the first time the transmitter is instantiated in order to validate the license.
 
 
 ### 2. Start transmitter
@@ -113,20 +113,20 @@ To stop it, use the following code:
 //Swift
 transmitter.stop()
 ```
-If something goes wrong during instantiation or start, the next methods will let you know the reason:
+If something goes wrong during instantiation or start, the following methods will let you know the reason:
 
 ```objective-c
 //Objective C
-// Tipically this method is called when your license is expirated or no valid.
+// Tipically this method is called when your license is expired or not valid.
 - (void)transmitter:(BFTransmitter *)transmitter didFailAtStartWithError:(NSError *)error;
-// This is not necessarily an error, but let you know if the transmitter needs internet to validate the license.
+// This isn't necessarily an error, but it lets you know if the transmitter needs Internet to validate the license.
 - (void)transmitter:(BFTransmitter *)transmitter didOccurEvent:(BFEvent)event description:(NSString *)description;
 ```
 ```swift
 //Swift
-// Tipically this method is called when your license is expirated or no valid.
+// Tipically this method is called when your license is expired or not valid.
 public func transmitter(_ transmitter: BFTransmitter, didFailAtStartWithError error: Error)
-// This is not necessarily an error, but let you know if the transmitter needs internet to validate the license.
+// This isn't necessarily an error, but it lets you know if the transmitter needs Internet to validate the license.
 public func transmitter(_ transmitter: BFTransmitter, didOccur event: BFEvent, description: String)
 ```
 
@@ -162,7 +162,7 @@ public func transmitter(transmitter: BFTransmitter!, didDetectDisconnectionWithU
 **user**: Identifier of the disconnected user.
 
 ### 4. Send data
-The following method is used to send data to another peer. This method performs an initial validation over the received parameters and if everything is correct, generates a packet identifier that is returned to the client. All of this initial process is synchronous. After this, the packet enters to an asynchronous process for the transmission of the packet.
+The following method is used to send data to another peer. This method performs an initial validation over the received parameters, and if everything is correct, generates a packet identifier that is returned to the client. All of this initial process is synchronous. After this, the packet enters to an asynchronous process for the transmission of the packet.
 
 ```objective-c
 //Objective-C
@@ -282,9 +282,9 @@ When a packet has been received, the following method will be invoked:
 ```
 **transmitter**: Instance of BFTransmitter invoking the method.
 
-**dictionary**: Received dictionary object, can be nil if data isn't.
+**dictionary**: Received dictionary object, can be nil if data isn't nil.
 
-**data**: Received NSData object, can be nil if dictionary isn't.
+**data**: Received NSData object, can be nil if dictionary isn't nil.
 
 **user**: Identifier related to the user who is sending the packet.
 
@@ -314,7 +314,7 @@ optional public func transmitter(transmitter: BFTransmitter, shouldConnectSecure
 
 ***return***: YES to establish a secure connection, NO otherwise.
 
-This method is called when a connection is just created and the returned value is used to know if the process should keep creating a secure connection.
+This method is called when a connection has just been created, and the returned value is used to know if the process should keep creating a secure connection.
 
 The other option to establish a secure connection is invoking the following method:
 
@@ -332,7 +332,7 @@ public func establishSecureConnection(user: String,
 
 **error**: Will be assigned if an error happens.
 
-In both ways the following delegate method will be invoked to indicate that the secure connection was successful:
+In both ways, the following delegate method will be invoked to indicate that the secure connection was successful:
 
 ```objective-c
 //Objective-C
@@ -346,23 +346,23 @@ optional public func transmitter(transmitter: BFTransmitter, didDetectSecureConn
 
 **user**: Identifier of the user.
 
-The possibility to send encrypted content remains even after the other user has gone out of range (e.g. sending an encrypted mesh packet), but it depends on the secure connection expiration. Expiration is the amount of time that a connection keeps existing even without activity. When a secure connection expires, encrypted content cannot be sent to the receiver until a new secure connection is established again. For this purpose, "activity" is when the user is in range, or encrypted content is sent even when the user is out of range.
+The possibility to send encrypted content remains even after the other user has gone out of range (e.g. sending an encrypted mesh packet), but it depends on the secure connection expiration. Expiration is the amount of time during which a connection keeps existing, even without activity. When a secure connection expires, encrypted content cannot be sent to the receiver until a new secure connection is established again. For this purpose, "activity" is when the user is in range, or encrypted content is sent even when the user is out of range.  
 
 The expiration limit is the same for all the connections and can be checked or set up using the following methods:
 
 ```objective-c
 //Objective-C
-  //Get the expiration
-  - (NSInteger)secureConnectionExpirationLimit;
-  //Set the expiration
-  - (void)setSecureConnectionExpirationLimit:(NSInteger)limit;
+//Get the expiration
+- (NSInteger)secureConnectionExpirationLimit;
+//Set the expiration
+- (void)setSecureConnectionExpirationLimit:(NSInteger)limit;
 ```
 ```swift
 //Swift
-  //Get the expiration
-  - (NSInteger)secureConnectionExpirationLimit;
-  //Set the expiration
-  - (void)setSecureConnectionExpirationLimit:(NSInteger)limit;
+//Get the expiration
+- (NSInteger)secureConnectionExpirationLimit;
+//Set the expiration
+- (void)setSecureConnectionExpirationLimit:(NSInteger)limit;
 ```
 
 ---
@@ -371,7 +371,7 @@ The expiration limit is the same for all the connections and can be checked or s
 
 * **Direct transmission** is a mechanism used to deliver packets to a user that is nearby or visible (a connection has been detected).
 
-* **Mesh transmission** is a mechanism used to deliver offline packets even when the receiving user is not nearby or visible. It can be achieved taking advantage of other nearby peers; these receive the package, hold it, and forward to other peers trying to find the receiver.
+* **Mesh transmission** is a mechanism used to deliver offline packets even when the receiving user isn't nearby or visible. It can be achieved taking advantage of other nearby peers; these receive the package, hold it, and forward to other peers trying to find the receiver.
 
 A message can be transmitted using mesh transmission, direct transmission, or both. The options used to achieve this will be discussed in the following section.
 
@@ -382,8 +382,8 @@ A message can be transmitted using mesh transmission, direct transmission, or bo
 There are several options for sending packets:
 
 - **BFSendingOptionDirectTransmission**: Sends the packet only when the receiver is in range.
-- **BFSendingOptionMeshTransmission**: Sends the packet using mesh. it doesn't need the receiver to be in range.
-- **BFSendingOptionFullTransmission**: Tries to send the packet if the peer is in range, otherwise includes the packet in the mesh process.
+- **BFSendingOptionMeshTransmission**: Sends the packet using mesh. It doesn't need the receiver to be in range.
+- **BFSendingOptionFullTransmission**: Tries to send the packet if the peer is in range, otherwise, includes the packet in the mesh process.
 - **BFSendingOptionEncrypted**:  Sends the packet encrypted. It can cause an error if a secure connection has not been established at least once.
 - **BFSendingOptionNoEncrypted**: Sends the packet without encryption.
 - **BFSendingOptionBroadcastReceiver**: Sends a packet using mesh without a defined receiver. The packet is broadcast to all nearby users that are or aren't in range. If this option is used and encryption option is added, it will cause an error.
@@ -413,7 +413,7 @@ Sending a dictionary packet with encryption to another user via mesh:
                                     options: options)
 ```
 
-Sending a dictionary with encryption to another user, but just if the other user is near:
+Sending a dictionary with encryption to another user, but only if the other user is near:
 
 ```objective-c
 //Objective-C
@@ -459,7 +459,7 @@ Sending a dictionary with encryption to another user, first using direct transmi
                                     options: options)
 ```
 
-Sending a dictionary without encryption to another user using just mesh:
+Sending a dictionary without encryption to another user using only mesh:
 
 ```objective-c
 //Objective-C
@@ -509,7 +509,7 @@ There are some configurations for sending packets that won't work, like trying t
 
 ## Session
 
-A session is necessary in order for the BFTransmitter instance to work. The session is persistent in the device (even after the user deletes the app) and contains a key pair necessary for encryption and a unique identifier assigned to the device. These credentials are the same for all the BFtransmitter instances and won't expire by themselves. If the client needs to create a new session for another user or simply needs to close the session, this must be destroyed explicitly.
+A session is necessary in order for the BFTransmitter instance to work. The session is persistent in the device (even after the user deletes the app) and contains a key pair necessary for encryption and a unique identifier assigned to the device. These credentials are the same for all the BFtransmitter instances and won't expire by themselves. If the client needs to create a new session for another user or simply needs to close the session, it must be destroyed explicitly.
 
 This code shows how to validate if there is an existing session:
 
@@ -543,7 +543,7 @@ And this code shows how to destroy a session:
 
 ## Background mode
 
-The framework is able to preserve active connections when the app is sent to background. To enable this characteristic you will need to set the property `backgroundModeEnabled` of the `BFTransmitter` to YES (the default value is NO).
+The framework is able to preserve active connections when the app is sent to background. To enable this characteristic, you will need to set the property `backgroundModeEnabled` of the `BFTransmitter` to YES (the default value is NO).
 
 ```objective-c
 //Objective-C
@@ -554,7 +554,7 @@ The framework is able to preserve active connections when the app is sent to bac
     transmitter.backgroundModeEnabled = true
 ```
 
-In order to enable, background mode, you will need to add the`UIBackgroundModes`key to your `Info.plist` file and set the keys value to an array containing one of the strings `bluetooth-peripheral` and `bluetooth-central`. If these keys are not added, the framework will launch an error.
+In order to enable background mode, you will need to add the`UIBackgroundModes`key to your `Info.plist` file and set the keys value to an array containing one of the strings `bluetooth-peripheral` and `bluetooth-central`. If these keys aren't added, the framework will launch an error.
 
 ---
 
@@ -585,7 +585,7 @@ The framework has four log levels that can be found in the following enumeration
 
 **info**: Prints errors and information related to the framework processes.
 
-**debug**: Prints error, framework processes information and debug messages.
+**debug**: Prints error, framework processes information, and debug messages.
 
 **trace**: Acts like the previous level, but also prints a full trace information for the mesh packets and some other specific events.
 
@@ -651,15 +651,15 @@ public class func existsKeyForUser(user: String!) -> Bool
 
 ### iOS Simulator
 
-The framework is not currently supported on the iOS Simulator. The framework includes desktop architectures, so the examples or the framework integrated in your project will compile, but the BFTransmitter instance would not be started.
+The framework isn't currently supported on the iOS Simulator. The framework includes desktop architectures, so the examples or the framework integrated in your project will compile, but the BFTransmitter instance would not be started.
 
 ### Save state
 
-If the app is closed and the BFTransmitter instance is not stopped before, `saveState:` method cleans and saves some control data (cache). The use is not mandatory, but is recommended stop the transmitter or call this method before the app is closed.
+If the app is closed and the BFTransmitter instance isn't stopped before, `saveState:` method cleans and saves some control data (cache). The use isn't mandatory, but it's recommended to stop the transmitter or call this method before the app is closed.
 
 ### Dictionaries
 
-In order to send a dictionary (see example of the step `4. Send data`, variable `payload`), its components must be JSON encodable, it also can include binary buffers (NSData objects) as values for a key. The main reason of this is that the receiver could be an android device that could not decode objects like UIImage, UIFont, etc.  
+In order to send a dictionary (see example of the step `4. Send data`, variable `payload`), its components must be JSON encodable. It can also include binary buffers (NSData objects) as values for a key. The main reason of this is that the receiver could be an Android device that could not decode objects like UIImage, UIFont, etc.
 
 Some examples of valid and invalid dictionaries:  
 
@@ -669,7 +669,7 @@ Some examples of valid and invalid dictionaries:
 NSDictionary * payload = @{ @"text": @"Message text",
                             @"sequence": @(3546),
                             @"duration": @(656.2973),
-                            @"success":  @(YES) 
+                            @"success":  @(YES)
                           };
 // Valid dictionary
 NSData * binaryFile = ... // Loads binary content
@@ -691,7 +691,7 @@ NSDictionary * payload = @{ @"text": @"Message text",
 let payload = [ "text": "Message text",
                 "sequence": 3546,
                 "duration": 656.2973,
-                "success":  true 
+                "success":  true
               ]
 // Valid dictionary
 let binaryFile: Data = ... // Loads binary content
@@ -709,7 +709,7 @@ let payload = [ "text": "Message text",
 
 ### Binary data (files)
 
-We strongly recommend that if you want to send a file (image, music file or other) don't add it as a value in the dictionary, you can do it, but the framework can send this kind of information separately, to give them a better management. An example that send a binary file is shown below:
+We strongly recommend that if you want to send a file (image, music file, or other) don't add it as a value in the dictionary. You can do it, but the framework can send this kind of information separately, to give them a better management. An example that sends a binary file is shown below:
 
 ```objective-c
 //Objective-C
@@ -734,20 +734,19 @@ We strongly recommend that if you want to send a file (image, music file or othe
                                     options: options)
 ```
 
-As you can see, you still can send a dictionary and a binary file together in the same packet, you can also send just the binary part by passing nil instead of the dictionary.  
-Is important to know that binary files sent using this method can't travel through the mesh network (can't be sent using the option `BFSendingOptionMeshTransmission` nor `BFSendingOptionFullTransmission`, just `BFSendingOptionDirectTransmission`), the reason of this is that binary files regularly are too large and could slow down the performance of the mesh network, so files like pictures with very high resolution, mp3 files and others can't be added. Any way, if you really need to send a binary file using the mesh network you can add it as a value in the dictionary, just consider that any large payload will be rejected, the maximum size is 1024 bytes.
+As you can see, you can still send a dictionary and a binary file together in the same packet, or you can also send just the binary part by passing nil instead of the dictionary.
 
 ### Mesh
 
-Is important to know that binary files sent using the method explained above can't travel through the mesh network (can't be sent using the option `BFSendingOptionMeshTransmission` nor `BFSendingOptionFullTransmission`, just `BFSendingOptionDirectTransmission`), the reason of this is that binary files regularly are too large and could slow down the performance of the mesh network, so files like pictures with very high resolution, mp3 files and others can't be added. Any way, if you really need to send a binary file using the mesh network you can add it as a value in the dictionary, just consider that any large payload will be rejected, the maximum size is 1024 bytes.
+It's important to know that binary files sent using the method explained above can't travel through the mesh network (can't be sent using the option `BFSendingOptionMeshTransmission` nor `BFSendingOptionFullTransmission`, just `BFSendingOptionDirectTransmission`), the reason of this is that binary files regularly are too large and could slow down the performance of the mesh network, so files like pictures with very high resolution, mp3 files and others can't be added. Any way, if you really need to send a binary file using the mesh network you can add it as a value in the dictionary, just consider that any large payload will be rejected, the maximum size is 1024 bytes.
 
 ### Broadcast messages
 
-Broadcast messages are restricted to be sent using the mesh network, as a consequence, you can't send a binary file using broadcast mode, at least you add it to a dictionary as I mentioned before, but it could be rejected if it's too large.
+Broadcast messages are restricted to be sent using the mesh network. As a consequence, you can't send a binary file using broadcast mode. You could add it to a dictionary as mentioned before, but it could be rejected if it's too large.
 
-### Connections with android devices
+### Connections with Android devices
 
-The iOS framework uses Wifi Peer-to-Peer and Bluetooth Low Energy (BLE) technologies, Wifi peer-to-peer is fast, it can give you up to 2 mbps in the best cases, unfortunately is only available in iOS devices, so any connection with an android device will be established using BLE, this kind of connection has very low throughoput (27 kbps in the best case considering the restrictions of the SO), it implies that if you wan't to send a large file (let's say 1 MB), it will take a really long time. In fact, Bridgefy framework restricts the size of a binary file to 120 KB in BLE (using direct transmission or `BFSendingOptionDirectTransmission`), the size of a dictionary is not restricted, but we don't recommend to send a large amount of data, though.
+The iOS framework uses Wi-Fi Peer-to-Peer and Bluetooth Low Energy (BLE) technologies. Wi-Fi peer-to-peer is fast: it can give you up to 2 mbps in the best cases. Unfortunately, it's only available on iOS devices, so any connection with an Android device will be established using BLE. This kind of connection has very low throughput (27 kbps in the best case, considering the restrictions of the OS). It implies that if you want to send a large file (let's say, 1 MB), it will take a really long time. In fact, Bridgefy framework restricts the size of a binary file to 120 KB in BLE (using direct transmission or `BFSendingOptionDirectTransmission`). Although the size of a dictionary isn't restricted, we don't recommend trying to send a large amount of data.
 
 [ADD_KEY]: https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
 [BRIDGEFY_WEB]: https://bridgefy.me/download-bridgefy.php
