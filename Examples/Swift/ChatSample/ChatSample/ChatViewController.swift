@@ -154,7 +154,11 @@ open class ChatViewController: UIViewController, UITableViewDataSource, UITableV
         var keyboardInfo = notification.userInfo!
         let keyboardFrameBegin = keyboardInfo[UIKeyboardFrameEndUserInfoKey]
         let frame: CGRect = (keyboardFrameBegin! as AnyObject).cgRectValue
-        self.keyboardConstraint.constant = frame.size.height
+        var padding: CGFloat = 0.0;
+        if #available(iOS 11, *) {
+            padding = self.view.safeAreaInsets.bottom;
+        }
+        self.keyboardConstraint.constant = frame.size.height - padding
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.layoutIfNeeded()
         }) 

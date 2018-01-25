@@ -167,8 +167,12 @@ NSString* const broadcastConversation = @"broadcast";
     NSDictionary* keyboardInfo = [notification userInfo];
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect frame = [keyboardFrameBegin CGRectValue];
+    CGFloat padding = 0.0;
+    if (@available(iOS 11, *)) {
+        padding = self.view.safeAreaInsets.bottom;
+    }
 
-    self.keyboardConstraint.constant = frame.size.height;
+    self.keyboardConstraint.constant = (frame.size.height * -1) + padding;
     [UIView animateWithDuration:.5f animations:^{
         [self.view layoutIfNeeded];
     }];
