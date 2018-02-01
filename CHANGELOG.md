@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.27] - 2018-02-01
+### Fixed
+- Minor fixes in the sequence in which some methods of BFTransmitterDelegate are called.
+
 ## [0.1.26] - 2018-01-25
 ### Fixed
 - Connectivity problems with Android devices.
