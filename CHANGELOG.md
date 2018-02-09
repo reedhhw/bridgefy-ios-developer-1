@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.28] - 2018-02-08
+### Added
+- Start BFTransmitter with a preloaded license.
+
 ## [0.1.27] - 2018-02-01
 ### Fixed
 - Minor fixes in the sequence in which some methods of BFTransmitterDelegate are called.
