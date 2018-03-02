@@ -131,7 +131,6 @@ public func transmitter(_ transmitter: BFTransmitter, didOccur event: BFEvent, d
 ```
 
 ### 3. Nearby peer detection
-Detect peer connection:
 
 When a peer is detected, the connection is made automatically. The following method is invoked when a peer has established connection:
 
