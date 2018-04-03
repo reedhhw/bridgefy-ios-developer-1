@@ -750,6 +750,7 @@ The iOS framework uses Wi-Fi Peer-to-Peer and Bluetooth Low Energy (BLE) technol
 ### Maximum package sizes and throughput
 
 These are the allowed sizes for different kind of packages, packages that exceed these limits will be discarded:  
+
 **Dictionary through BLE:** Not restricted, but 120 KB as maximum is recommended.  
 **Dictionary through WiFi:** Not restricted.  
 **Binary data through BLE:** 120 KB  
@@ -760,6 +761,7 @@ These are the allowed sizes for different kind of packages, packages that exceed
 **Mesh binary data through BLE:** N/A  
   
 The throughput was mentioned in a previous section, but it's listed below for the two types of connection:  
+  
 **WiFi:** 2 mbps best case. Only available to use between iOS devices.  
 **BLE:** 27 kbps best case.  
 
