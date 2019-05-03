@@ -69,6 +69,19 @@ If you don't know how to add Run Scripts, you can check the following image:
 
 ---
 
+### Configuring Transmitter Framework without Internet
+Go to your Bridgefy Dashboard, then go to your Licence List and download the .txt file inside, which contains a String. 
+
+![Dashboard licence](https://raw.githubusercontent.com/bridgefy/bridgefy-android-samples/master/img/dashboard.png)  
+
+Copy the certificate string that was generated along with your app's API Key. 
+
+In info.plist, create an entry named `com.bridgefy.SDKLicense` and paste the text value. If there is no Internet connection available, the Transmitter Framework will use this certificate to validate your licence.
+
+![Dashboard licence](./img/cert.png)
+
+---
+
 ## Basic usage
 
 ### 1. Instance
