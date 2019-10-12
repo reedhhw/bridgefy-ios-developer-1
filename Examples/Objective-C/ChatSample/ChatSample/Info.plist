@@ -52,7 +52,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>com.bridgefy.SDKLicense</key>
-	<string>gqRkYXRhxEcyMDE4LTAyLTA5VDIzOjQ1OjAxLjQ3Mlp8MjAyMi0wNC0yMlQwMDoxODowMS4wMDBafGNvbS5icmlkZ2VmeS5CcmlkZ2VmealzaWduYXR1cmXFAQCabXmdA1raWVV8vUAedwS9p2eqddMxtiYvFOVNLZCzGzQMQMOzdpCU1ZSzwT9ULAUphDV1pNv65lJnsq2oGLcYNf2TmGCulqcpRRvu9oHrq9pVd/X9hc3LkN1xR2aCpuGrUm88dovCOfXsg2ksFqOxxkKPi+HDLdzmOhSXdrKvyatgTyNceQYK5FVpre4zyEn/yilxSLiFGCP2tljaMY4gnoTdd8PoloKUMpxTysU4Ya2CisC+QC1U3bzHjg1LB/j/OOxO+qjyGdQKVJaVEhuSjCvz0ANgUK3GdvE1+Bc/TKs8WjvwYHLHcd64vmxYN6r2pis/WI8WUr21WXggyhXx</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
